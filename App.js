@@ -5,15 +5,16 @@ import { styles } from './styles';
 import Mapbox from '@rnmapbox/maps';
 Mapbox.setAccessToken("pk.eyJ1IjoicGFtZTExYSIsImEiOiJjbWlnMjY5c2IwMmRsM2Zwb3FzamxkbGg3In0.335QLoA_FqHQDF6EGP49EQ")
 
-export default function TuorMap() {
-  const LocalizacaoInicial={
-    centerCoordinate: [-46.6333, -23.5505], //COORDENADA DO IFNMG
+export default function App() {
+
+  const LocalizacaoInicial = {
+    centerCoordinate: [-44.3680496,-15.4474802], //COORDENADA DO IFNMG
     zoomLevel: 12,
   };
 
-  return(
+  return (
     <View style={styles.container}>
-      <Mapbox.MapView 
+      <Mapbox.MapView
         style={styles.map}
         styleURL={Mapbox.StyleURL.Street}
       >
@@ -23,7 +24,7 @@ export default function TuorMap() {
         />
         <Mapbox.PointAnnotation
           id="meuPontoInicial"
-          coordinate={[-46.6333, -23.5505]}
+          coordinate={[-44.3680496, -15.4474802]}
         />
       </Mapbox.MapView>
     </View>
