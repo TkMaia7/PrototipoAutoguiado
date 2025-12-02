@@ -8,4 +8,8 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.background,
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
+  map: {
+    flex: 1
+  }
 });
+
