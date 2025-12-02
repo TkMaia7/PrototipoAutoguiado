@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { Text, View} from 'react-native';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { Header } from './src/components/header';
 import { styles } from './styles';
 import Mapbox from '@rnmapbox/maps';
@@ -13,20 +14,29 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <Mapbox.MapView
-        style={styles.map}
-        styleURL={Mapbox.StyleURL.Street}
-      >
-        <Mapbox.Camera
-          centerCoordinate={LocalizacaoInicial.centerCoordinate}
-          animationMode="Flyto"
-        />
-        <Mapbox.PointAnnotation
-          id="meuPontoInicial"
-          coordinate={[-44.3680496, -15.4474802]}
-        />
-      </Mapbox.MapView>
-    </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        
+        <Header />
+        
+        <Mapbox.MapView
+          style={styles.map} 
+          styleURL={Mapbox.StyleURL.Street}
+        >
+          <Mapbox.Camera
+            centerCoordinate={LocalizacaoInicial.centerCoordinate}
+            zoomLevel={LocalizacaoInicial.zoomLevel}
+            animationMode="Flyto"
+          />
+          <Mapbox.PointAnnotation
+            id="meuPontoInicial"
+            coordinate={LocalizacaoInicial.centerCoordinate}
+          />
+        </Mapbox.MapView>
+
+        <StatusBar style="auto" />
+      </SafeAreaView>
+      
+    </SafeAreaProvider>
   );
 }

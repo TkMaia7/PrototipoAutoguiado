@@ -6,10 +6,10 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.background,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   map: {
-    flex: 1
+    flex: 1,
+    width: '100%'
   }
 });
 
