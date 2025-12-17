@@ -2,7 +2,6 @@ import { StyleSheet, Platform} from 'react-native';
 import { colors } from '../../styles/colors';
 
 export const styles = StyleSheet.create({
-  
   headerContainer: {
     width: '100%', 
     height: 60,
